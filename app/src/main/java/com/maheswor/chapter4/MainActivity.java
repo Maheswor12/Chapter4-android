@@ -2,6 +2,7 @@ package com.maheswor.chapter4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,9 +41,17 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String desh = adapterView.getItemAtPosition(position).toString();
                 String capital = countries.get(desh);
-                Toast.makeText(MainActivity.this, "Capital of"+desh+" is : "+capital, Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(MainActivity.this, "Capital of"+desh+" is : "+capital, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this,capitalActivity.class);
+                intent.putExtra("capital",capital);
+                startActivity(intent);
             }
         });
+//        listView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 }
